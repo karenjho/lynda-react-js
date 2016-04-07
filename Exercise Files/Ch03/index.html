@@ -12,7 +12,10 @@
         var MyComponent = React.createClass({
           render: function() {
             return (
-              <div>My Component</div>
+              <div>
+                <h1>{this.props.text}</h1>
+                <p>{this.props.children}</p>
+              </div>
             )
           }
         });
@@ -20,9 +23,15 @@
         // To render multiple components, you can wrap them in one element
         React.render(
           <div>
-            <MyComponent />
-            <MyComponent />
-            <MyComponent />
+            <MyComponent text="Hello World">
+                This is a hello.
+            </MyComponent>
+            <MyComponent text="How are you?">
+                This is a how are you.
+            </MyComponent>
+            <MyComponent text="Goodbye">
+                This is a goodbye.
+            </MyComponent>
           </div>
           , document.getElementById('react-container')
         );
